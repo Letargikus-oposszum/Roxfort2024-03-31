@@ -2,7 +2,7 @@ import express from 'express';
 import sqlite from 'sqlite3';
 import wizards from '../wizards/wizards';
 
-export function dbGetAll(sql, params =[]){
+export async function dbGetAll(sql, params =[]){
     return new Promise((reoslve, reject) =>{
         db.get(sql, params, (err, row) =>{
             if (err) reject (err);
@@ -10,7 +10,7 @@ export function dbGetAll(sql, params =[]){
         });
     });
 }
-export function dbGetById(sql, params = []) {
+export async function dbGetById(sql, params = []) {
     return new Promise((resolve, reject) => {
         db.get(sql, params, (err, row) => {
             if (err) reject(err);
@@ -19,7 +19,7 @@ export function dbGetById(sql, params = []) {
     });
 }
 
-export function dbPut(sql, params = []) {
+export async function dbPut(sql, params = []) {
     return new Promise((resolve, reject) => {
         db.run(sql, params, function (err) {  
             if (err) reject(err);
@@ -28,7 +28,7 @@ export function dbPut(sql, params = []) {
     });
 }
 
-export function dbPost(sql, params = []) {
+export async function dbPost(sql, params = []) {
     return new Promise((resolve, reject) => {
         db.run(sql, params, function (err) {  
             if (err) reject(err);
@@ -37,7 +37,7 @@ export function dbPost(sql, params = []) {
     });
 }
 
-export function dbDeleteById(sql, params = []) {
+export async function dbDeleteById(sql, params = []) {
     return new Promise((resolve, reject) => {
         db.run(sql, params, function (err) {  
             if (err) reject(err);
